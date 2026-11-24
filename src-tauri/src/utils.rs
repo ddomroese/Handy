@@ -143,6 +143,44 @@ pub fn foreground_window_is_elevated() -> bool {
     }
 }
 
+/// Waits until Ctrl, Shift, Alt and Win are released. Returns `false` if
+/// `timeout` passed first.
+pub fn wait_for_modifiers_released(timeout: std::time::Duration) -> bool {
+    #[cfg(target_os = "windows")]
+    {
+        use windows::Win32::UI::Input::KeyboardAndMouse::{
+            GetAsyncKeyState, VK_CONTROL, VK_LWIN, VK_MENU, VK_RWIN, VK_SHIFT,
+        };
+
+        let any_down = || {
+            [VK_CONTROL, VK_SHIFT, VK_MENU, VK_LWIN, VK_RWIN]
+                .iter()
+                // SAFETY: GetAsyncKeyState has no preconditions.
+                .any(|key| unsafe { GetAsyncKeyState(i32::from(key.0)) } < 0)
+        };
+
+        let start = std::time::Instant::now();
+        while any_down() {
+            if start.elapsed() >= timeout {
+                log::warn!("Modifier keys still held after {timeout:?}");
+                return false;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(10));
+        }
+        let waited = start.elapsed();
+        if waited >= std::time::Duration::from_millis(10) {
+            log::debug!("Waited {waited:?} for modifier keys to be released");
+        }
+        true
+    }
+
+    #[cfg(not(target_os = "windows"))]
+    {
+        let _ = timeout;
+        true
+    }
+}
+
 #[cfg(target_os = "windows")]
 fn foreground_integrity() -> ForegroundIntegrity {
     use windows::Win32::Foundation::{CloseHandle, E_ACCESSDENIED};

@@ -19,6 +19,10 @@ use crate::utils::{is_gnome_wayland, is_kde_wayland, is_wayland};
 /// the user's clipboard. Only taken by `paste`, which never runs on the main thread.
 static PASTE_LOCK: Mutex<()> = Mutex::new(());
 
+/// How long typing waits for held modifier keys before it fails.
+/// Long enough to outlast a push-to-talk recording started mid-text.
+const MODIFIER_RELEASE_TIMEOUT: Duration = Duration::from_secs(120);
+
 /// Runs `f` with the shared Enigo on the main thread (macOS TIS APIs require it)
 /// and waits for the result. Runs inline if already on the main thread, so no deadlock.
 fn with_enigo<T: Send + 'static>(
@@ -817,6 +821,10 @@ fn paste_direct(
     app_handle: &AppHandle,
     #[cfg(target_os = "linux")] typing_tool: TypingTool,
 ) -> Result<(), String> {
+    if !crate::utils::wait_for_modifiers_released(MODIFIER_RELEASE_TIMEOUT) {
+        return Err("Did not type: modifier keys stayed held".to_string());
+    }
+
     #[cfg(target_os = "linux")]
     {
         if try_direct_typing_linux(text, typing_tool)? {
