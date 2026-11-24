@@ -829,6 +829,10 @@
         "title": "Délai de collage (après)",
         "description": "Délai (en millisecondes) après la touche de collage, avant la restauration de votre presse-papiers précédent. Augmentez si l'ancien contenu du presse-papiers est collé à la place de la transcription."
       },
+      "directTypingDelay": {
+        "title": "Délai de frappe (Direct)",
+        "description": "Pause moyenne (en millisecondes) entre les caractères avec la méthode de collage « Direct », variée aléatoirement pour ressembler à une frappe humaine. 0 envoie tout le texte d'un coup."
+      },
       "holdThreshold": {
         "title": "Seuil de maintien",
         "description": "Mode Auto uniquement : durée (en millisecondes) pendant laquelle le raccourci doit rester enfoncé pour compter comme un maintien plutôt qu'une pression brève. Diminuez si l'enregistrement reste actif après un maintien court ; augmentez si des pressions brèves volontaires sont traitées comme un maintien."

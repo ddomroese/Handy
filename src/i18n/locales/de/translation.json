@@ -829,6 +829,10 @@
         "title": "Einfügeverzögerung (nachher)",
         "description": "Verzögerung (in Millisekunden) nach dem Einfüge-Tastendruck, bevor deine vorherige Zwischenablage wiederhergestellt wird. Erhöhe den Wert, wenn der alte Inhalt der Zwischenablage statt der Transkription eingefügt wird."
       },
+      "directTypingDelay": {
+        "title": "Tippverzögerung (Direkt)",
+        "description": "Durchschnittliche Pause (in Millisekunden) zwischen den Zeichen bei der Einfügemethode „Direkt“, leicht zufällig variiert, damit es wie menschliches Tippen wirkt. 0 sendet den gesamten Text auf einmal."
+      },
       "holdThreshold": {
         "title": "Halte-Schwellenwert",
         "description": "Nur im Modus „Automatisch“: wie lange (in Millisekunden) die Tastenkombination gedrückt bleiben muss, damit sie als Halten statt als Tippen zählt. Verringern, wenn die Aufnahme nach kurzem Halten weiterläuft; erhöhen, wenn bewusstes Tippen als Halten gewertet wird."

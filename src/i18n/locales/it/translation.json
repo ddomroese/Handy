@@ -829,6 +829,10 @@
         "title": "Ritardo incolla (dopo)",
         "description": "Ritardo (in millisecondi) dopo il tasto incolla, prima di ripristinare gli appunti precedenti. Aumentare se viene incollato il vecchio contenuto degli appunti invece della trascrizione."
       },
+      "directTypingDelay": {
+        "title": "Ritardo digitazione (Diretto)",
+        "description": "Pausa media (in millisecondi) tra i caratteri con il metodo di incolla «Diretto», variata casualmente per sembrare una digitazione umana. 0 invia tutto il testo in una volta."
+      },
       "holdThreshold": {
         "title": "Soglia di pressione prolungata",
         "description": "Solo in modalità Automatico: per quanto tempo (in millisecondi) la scorciatoia deve restare premuta per contare come pressione prolungata invece di un tocco. Riduci se la registrazione resta attiva dopo pressioni brevi; aumenta se i tocchi intenzionali vengono interpretati come pressioni prolungate."

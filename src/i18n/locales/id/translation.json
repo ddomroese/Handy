@@ -829,6 +829,10 @@
         "title": "Jeda Tempel (Sesudah)",
         "description": "Jeda (dalam milidetik) setelah perintah tempel dikirim sebelum mengembalikan isi papan klip sebelumnya. Tingkatkan jika isi papan klip lama yang ditempel alih-alih transkripsi."
       },
+      "directTypingDelay": {
+        "title": "Jeda Pengetikan (Langsung)",
+        "description": "Jeda rata-rata (dalam milidetik) antarkarakter saat menggunakan metode tempel \"Langsung\", divariasikan secara acak agar terlihat seperti ketikan manusia. 0 mengirim seluruh teks sekaligus."
+      },
       "holdThreshold": {
         "title": "Ambang Waktu Tahan",
         "description": "Hanya mode Otomatis: berapa lama (dalam milidetik) pintasan harus ditahan agar dianggap ditahan, bukan ditekan singkat. Turunkan jika penahanan singkat membuat perekaman tetap aktif; naikkan jika ketukan yang disengaja dianggap sebagai penahanan."

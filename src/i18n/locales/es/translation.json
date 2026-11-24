@@ -829,6 +829,10 @@
         "title": "Retraso de pegado (después)",
         "description": "Retraso (en milisegundos) después de la pulsación de tecla de pegar, antes de restaurar el portapapeles anterior. Auméntelo si se pega el contenido antiguo del portapapeles en lugar de la transcripción."
       },
+      "directTypingDelay": {
+        "title": "Retraso de escritura (Directo)",
+        "description": "Pausa media (en milisegundos) entre caracteres al usar el método de pegado «Directo», variada aleatoriamente para que parezca escritura humana. 0 envía todo el texto de una vez."
+      },
       "holdThreshold": {
         "title": "Umbral de pulsación",
         "description": "Solo en el modo Automático: cuánto tiempo (en milisegundos) debe mantenerse pulsado el atajo para contar como mantener en lugar de un toque. Redúcelo si la grabación sigue activa tras pulsaciones cortas; auméntalo si los toques deliberados se interpretan como mantener."

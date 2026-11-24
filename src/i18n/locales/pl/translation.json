@@ -829,6 +829,10 @@
         "title": "Opóźnienie wklejania (po)",
         "description": "Opóźnienie (w milisekundach) po klawiszu wklejania, przed przywróceniem poprzedniego schowka. Zwiększ, jeśli zamiast transkrypcji wklejana jest stara zawartość schowka."
       },
+      "directTypingDelay": {
+        "title": "Opóźnienie pisania (Bezpośrednio)",
+        "description": "Średnia przerwa (w milisekundach) między znakami przy metodzie wklejania „Bezpośrednio”, losowo zmieniana, aby przypominała pisanie przez człowieka. 0 wysyła cały tekst naraz."
+      },
       "holdThreshold": {
         "title": "Próg przytrzymania",
         "description": "Tylko w trybie automatycznym: jak długo (w milisekundach) skrót musi być przytrzymany, aby liczył się jako przytrzymanie, a nie dotknięcie. Zmniejsz, jeśli po krótkim przytrzymaniu nagrywanie pozostaje włączone; zwiększ, jeśli celowe dotknięcia są traktowane jako przytrzymanie."

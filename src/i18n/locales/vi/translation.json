@@ -829,6 +829,10 @@
         "title": "Độ trễ dán (sau)",
         "description": "Độ trễ (tính bằng mili giây) sau khi gửi phím dán, trước khi khôi phục bảng nhớ tạm trước đó. Tăng nếu nội dung bảng nhớ tạm cũ được dán thay vì bản chép lời."
       },
+      "directTypingDelay": {
+        "title": "Độ trễ gõ (Trực tiếp)",
+        "description": "Khoảng dừng trung bình (tính bằng mili giây) giữa các ký tự khi dùng phương thức dán \"Trực tiếp\", được thay đổi ngẫu nhiên để trông giống người gõ. 0 sẽ gửi toàn bộ văn bản cùng lúc."
+      },
       "holdThreshold": {
         "title": "Ngưỡng giữ phím",
         "description": "Chỉ áp dụng cho chế độ Tự động: phím tắt phải được giữ trong bao lâu (mili giây) để được tính là giữ thay vì nhấn nhanh. Giảm xuống nếu bản ghi vẫn tiếp tục sau khi giữ ngắn; tăng lên nếu các lần nhấn nhanh có chủ ý bị coi là giữ phím."

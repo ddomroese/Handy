@@ -829,6 +829,10 @@
         "title": "Forsinkelse af indsættelse (efter)",
         "description": "Forsinkelse (i millisekunder) efter tastetrykket for indsætning, før din tidligere udklipsholder gendannes. Øg, hvis dit gamle udklipsholderindhold bliver indsat i stedet for transskriptionen."
       },
+      "directTypingDelay": {
+        "title": "Skriveforsinkelse (Direkte)",
+        "description": "Gennemsnitlig pause (i millisekunder) mellem tegn ved indsættelsesmetoden \"Direkte\", tilfældigt varieret, så det ligner menneskelig indtastning. 0 sender hele teksten på én gang."
+      },
       "holdThreshold": {
         "title": "Holdetærskel",
         "description": "Kun i automatisk tilstand: hvor længe (i millisekunder) genvejen skal holdes nede, før det tæller som et hold i stedet for et tryk. Sænk værdien, hvis korte hold lader optagelsen køre videre; hæv den, hvis bevidste tryk behandles som hold."

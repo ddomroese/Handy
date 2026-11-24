@@ -710,6 +710,7 @@ pub fn run(cli_args: CliArgs) {
             shortcut::change_language_detection_window_setting,
             shortcut::change_paste_delay_ms_setting,
             shortcut::change_paste_delay_after_ms_setting,
+            shortcut::change_direct_typing_delay_ms_setting,
             shortcut::change_reliable_paste_setting,
             shortcut::change_modifier_release_timeout_secs_setting,
             shortcut::change_paste_method_setting,

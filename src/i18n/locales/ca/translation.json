@@ -829,6 +829,10 @@
         "title": "Retard après d'enganxar",
         "description": "Retard (en mil·lisegons) després d'enviar la combinació de tecles per enganxar i abans de restaurar el porta-retalls anterior. Augmenteu-lo si s'enganxa el contingut antic del porta-retalls en lloc de la transcripció."
       },
+      "directTypingDelay": {
+        "title": "Retard d'escriptura (Directe)",
+        "description": "Pausa mitjana (en mil·lisegons) entre caràcters quan s'utilitza el mètode d'enganxament «Directe», variada aleatòriament perquè sembli escriptura humana. 0 envia tot el text de cop."
+      },
       "holdThreshold": {
         "title": "Llindar de pulsació llarga",
         "description": "Només en mode automàtic: temps (en mil·lisegons) que cal mantenir premuda la drecera perquè es consideri una pulsació llarga en lloc d'una de breu. Reduïu-lo si les pulsacions llargues curtes deixen l'enregistrament actiu; augmenteu-lo si les pulsacions breus intencionades es tracten com a llargues."

@@ -829,6 +829,10 @@
         "title": "Beillesztési késleltetés (utána)",
         "description": "Késleltetés (ezredmásodpercben) a beillesztés billentyűleütése után, az előző vágólap-tartalom visszaállítása előtt. Növeld, ha az átirat helyett a régi vágólap-tartalom illesztődik be."
       },
+      "directTypingDelay": {
+        "title": "Gépelési késleltetés (Közvetlen)",
+        "description": "Átlagos szünet (ezredmásodpercben) a karakterek között a „Közvetlen” beillesztési módnál, véletlenszerűen változtatva, hogy emberi gépelésnek tűnjön. 0 esetén a teljes szöveg egyszerre kerül elküldésre."
+      },
       "holdThreshold": {
         "title": "Nyomva tartás küszöbe",
         "description": "Csak Automatikus módban: mennyi ideig (ezredmásodpercben) kell nyomva tartani a billentyűparancsot, hogy koppintás helyett nyomva tartásnak számítson. Csökkentsd, ha a rövid nyomva tartások bekapcsolva hagyják a felvételt; növeld, ha a szándékos koppintásokat nyomva tartásnak veszi."

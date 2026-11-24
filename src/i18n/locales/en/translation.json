@@ -829,6 +829,10 @@
         "title": "Paste Delay (After)",
         "description": "Delay (in milliseconds) after the paste keystroke, before restoring your previous clipboard. Increase if your old clipboard content is being pasted instead of the transcription."
       },
+      "directTypingDelay": {
+        "title": "Typing Delay (Direct)",
+        "description": "Average pause (in milliseconds) between characters when using the Direct paste method, randomly varied so it looks like human typing. 0 sends the whole text at once."
+      },
       "holdThreshold": {
         "title": "Hold Threshold",
         "description": "Auto mode only: how long (in milliseconds) the shortcut must be held before it counts as a hold instead of a tap. Lower if short holds keep leaving recording on; raise if deliberate taps get treated as holds."

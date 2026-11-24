@@ -823,8 +823,12 @@ fn paste_direct(
     text: &str,
     app_handle: &AppHandle,
     modifier_timeout: Duration,
+    typing_delay_ms: u64,
     #[cfg(target_os = "linux")] typing_tool: TypingTool,
 ) -> Result<(), String> {
+    if typing_delay_ms > 0 {
+        return type_with_delay(text, app_handle, modifier_timeout, typing_delay_ms);
+    }
     if !wait_for_modifiers_released(app_handle, modifier_timeout) {
         return Err("Did not type: modifier keys stayed held".to_string());
     }
@@ -841,6 +845,62 @@ fn paste_direct(
     with_enigo(app_handle, move |enigo| {
         input::paste_text_direct(enigo, &text)
     })
+}
+
+/// Types `text` one character at a time, pausing about `delay_ms` after each.
+/// Pauses vary randomly and run longer after punctuation to mimic human typing.
+fn type_with_delay(
+    text: &str,
+    app_handle: &AppHandle,
+    modifier_timeout: Duration,
+    delay_ms: u64,
+) -> Result<(), String> {
+    let mut rng = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|d| d.as_nanos() as u64)
+        .unwrap_or(0)
+        | 1;
+    let mut next_unit = move || {
+        rng ^= rng << 13;
+        rng ^= rng >> 7;
+        rng ^= rng << 17;
+        (rng >> 11) as f64 / (1u64 << 53) as f64
+    };
+
+    let started = std::time::Instant::now();
+    let mut typed = 0u32;
+    let mut paused_ms = 0.0;
+    let mut chars = text.chars().peekable();
+    while let Some(c) = chars.next() {
+        typed += 1;
+        if !wait_for_modifiers_released(app_handle, modifier_timeout) {
+            return Err(format!(
+                "Stopped typing after {} of {} characters: modifier keys stayed held",
+                typed - 1,
+                text.chars().count()
+            ));
+        }
+        let ch = c.to_string();
+        with_enigo(app_handle, move |enigo| {
+            input::paste_text_direct(enigo, &ch)
+        })?;
+        if chars.peek().is_none() {
+            break;
+        }
+        let mut pause = delay_ms as f64 * (0.5 + next_unit());
+        if matches!(c, '.' | ',' | '!' | '?' | ';' | ':' | '\n') {
+            pause += delay_ms as f64 * (1.0 + 2.0 * next_unit());
+        }
+        log::trace!("Typing pause: {pause:.0}ms");
+        paused_ms += pause;
+        std::thread::sleep(Duration::from_micros((pause * 1000.0) as u64));
+    }
+    log::debug!(
+        "Typed {typed} characters in {:?} ({paused_ms:.0}ms of pauses, {:.0}ms average)",
+        started.elapsed(),
+        paused_ms / f64::from(typed.saturating_sub(1).max(1))
+    );
+    Ok(())
 }
 
 pub(crate) fn send_return_key(enigo: &mut Enigo, key_type: AutoSubmitKey) -> Result<(), String> {
@@ -946,10 +1006,19 @@ fn paste_as_configured(
         text
     };
 
-    info!(
-        "Using paste method: {:?}, delay before: {}ms, delay after: {}ms",
-        paste_method, paste_delay_ms, paste_delay_after_ms
-    );
+    match paste_method {
+        PasteMethod::Direct => info!(
+            "Using paste method: Direct, typing delay: {}ms",
+            settings.direct_typing_delay_ms
+        ),
+        PasteMethod::CtrlV | PasteMethod::CtrlShiftV | PasteMethod::ShiftInsert => info!(
+            "Using paste method: {:?}, delay before: {}ms, delay after: {}ms",
+            paste_method, paste_delay_ms, paste_delay_after_ms
+        ),
+        PasteMethod::None | PasteMethod::ExternalScript => {
+            info!("Using paste method: {:?}", paste_method)
+        }
+    }
 
     // Perform the paste operation
     match paste_method {
@@ -961,6 +1030,7 @@ fn paste_as_configured(
                 &text,
                 &app_handle,
                 Duration::from_secs(settings.modifier_release_timeout_secs),
+                settings.direct_typing_delay_ms,
                 #[cfg(target_os = "linux")]
                 settings.typing_tool,
             )?;

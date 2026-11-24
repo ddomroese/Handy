@@ -829,6 +829,10 @@
         "title": "Yapıştırma Gecikmesi (Sonra)",
         "description": "Yapıştırma tuşundan sonra, önceki panonuz geri yüklenmeden önceki gecikme (milisaniye cinsinden). Transkripsiyon yerine eski pano içeriği yapıştırılıyorsa artırın."
       },
+      "directTypingDelay": {
+        "title": "Yazma Gecikmesi (Doğrudan)",
+        "description": "\"Doğrudan\" yapıştırma yöntemi kullanılırken karakterler arasındaki ortalama duraklama (milisaniye cinsinden); insan yazımı gibi görünmesi için rastgele değişir. 0, tüm metni tek seferde gönderir."
+      },
       "holdThreshold": {
         "title": "Basılı tutma eşiği",
         "description": "Yalnızca Otomatik modda: kısayolun dokunma yerine basılı tutma sayılması için ne kadar süre (milisaniye) basılı tutulması gerektiği. Kısa basılı tutmalardan sonra kayıt açık kalmaya devam ediyorsa azaltın; bilinçli dokunmalar basılı tutma olarak algılanıyorsa artırın."
