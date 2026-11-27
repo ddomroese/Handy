@@ -79,6 +79,9 @@ const RecordingOverlay: React.FC = () => {
   // True once live text overflows the cap. A top overlay fades its top edge only
   // while overflowing, so the resting first line stays crisp flush under the pill.
   const [overflowing, setOverflowing] = useState(false);
+  // Typing is paused until the user lets go of held modifier keys (they would
+  // turn the typed text into shortcuts). Say so instead of a stuck spinner.
+  const [waitingForKeys, setWaitingForKeys] = useState(false);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [noticeWidth, setNoticeWidth] = useState<number>();
   const noticeProbeRef = useRef<HTMLSpanElement>(null);
@@ -102,6 +105,7 @@ const RecordingOverlay: React.FC = () => {
       const unlistenShow = await listen("show-overlay", async (event) => {
         const overlayState = event.payload as OverlayState;
         clearTimeout(fadeTimerRef.current);
+        setWaitingForKeys(false);
         if (!isNoticeState(overlayState)) setNotice(null);
         // Reset synchronously before settings I/O. A fast microphone can emit
         // recording-ready while the awaits below are in flight; resetting after
@@ -140,6 +144,7 @@ const RecordingOverlay: React.FC = () => {
       const unlistenHide = await listen("hide-overlay", () => {
         setIsVisible(false);
         setCaptureReady(false);
+        setWaitingForKeys(false);
         // A notice keeps rendering while it fades. Dropping the transcript here
         // stops a later notice from showing an old session's text.
         clearTimeout(fadeTimerRef.current);
@@ -172,6 +177,9 @@ const RecordingOverlay: React.FC = () => {
 
       const unlistenPhase = await events.streamPhaseEvent.listen((event) => {
         const payload: StreamPhaseEvent = event.payload;
+        // A Live session changes phase without a show-overlay, so an older
+        // session's wait must not carry into this one's working label.
+        setWaitingForKeys(false);
         setPhase(payload.phase);
         if (payload.kind) setWorkKind(payload.kind);
       });
@@ -203,7 +211,13 @@ const RecordingOverlay: React.FC = () => {
         },
       );
 
+      const unlistenWaiting = await listen<boolean>(
+        "waiting-for-keys",
+        (event) => setWaitingForKeys(event.payload),
+      );
+
       return () => {
+        unlistenWaiting();
         unlistenNotice();
         unlistenShow();
         unlistenHide();
@@ -332,7 +346,9 @@ const RecordingOverlay: React.FC = () => {
       <div className="sbase-l">
         <span className="sspinner" />
       </div>
-      <span className="swork-label">{label}</span>
+      <span className="swork-label">
+        {waitingForKeys ? t("overlay.releaseKeys") : label}
+      </span>
       <div className="sbase-r">{showCancel && cancelBtn}</div>
     </div>
   );

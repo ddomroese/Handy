@@ -145,9 +145,19 @@ pub fn foreground_window_is_elevated() -> bool {
 
 /// Waits until Ctrl, Shift, Alt and Win are released. Returns `false` if
 /// `timeout` passed first.
-pub fn wait_for_modifiers_released(timeout: std::time::Duration) -> bool {
+///
+/// Calls `on_waiting(true)` once the wait is long enough for the user to
+/// notice, and `on_waiting(false)` when it then ends.
+pub fn wait_for_modifiers_released(
+    timeout: std::time::Duration,
+    on_waiting: impl Fn(bool),
+) -> bool {
     #[cfg(target_os = "windows")]
     {
+        /// Shorter waits are the shortcut's own release and need no hint.
+        const HINT_AFTER: std::time::Duration = std::time::Duration::from_millis(300);
+        let mut hinted = false;
+
         use windows::Win32::UI::Input::KeyboardAndMouse::{
             GetAsyncKeyState, VK_CONTROL, VK_LWIN, VK_MENU, VK_RWIN, VK_SHIFT,
         };
@@ -163,9 +173,19 @@ pub fn wait_for_modifiers_released(timeout: std::time::Duration) -> bool {
         while any_down() {
             if start.elapsed() >= timeout {
                 log::warn!("Modifier keys still held after {timeout:?}");
+                if hinted {
+                    on_waiting(false);
+                }
                 return false;
             }
+            if !hinted && start.elapsed() >= HINT_AFTER {
+                hinted = true;
+                on_waiting(true);
+            }
             std::thread::sleep(std::time::Duration::from_millis(10));
+        }
+        if hinted {
+            on_waiting(false);
         }
         let waited = start.elapsed();
         if waited >= std::time::Duration::from_millis(10) {
@@ -176,7 +196,7 @@ pub fn wait_for_modifiers_released(timeout: std::time::Duration) -> bool {
 
     #[cfg(not(target_os = "windows"))]
     {
-        let _ = timeout;
+        let _ = (timeout, on_waiting);
         true
     }
 }

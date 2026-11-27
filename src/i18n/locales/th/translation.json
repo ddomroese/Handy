@@ -982,7 +982,8 @@
   "overlay": {
     "transcribing": "กำลังถอดเสียง...",
     "processing": "กำลังประมวลผล...",
-    "loadingModel": "กำลังโหลดโมเดล..."
+    "loadingModel": "กำลังโหลดโมเดล...",
+    "releaseKeys": "ปล่อยปุ่ม..."
   },
   "secureInput": {
     "blockedWithCulprit_one": "{{name}} อาจกำลังบล็อกปุ่มลัด 1 รายการ",

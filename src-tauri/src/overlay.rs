@@ -650,6 +650,15 @@ pub fn emit_recording_ready(app_handle: &AppHandle) {
     });
 }
 
+/// Tells the overlay whether typing is paused until the user releases held
+/// modifier keys, so its working label can say why nothing is happening.
+pub fn set_waiting_for_keys(app_handle: &AppHandle, waiting: bool) {
+    if !OVERLAY_ENABLED.load(Ordering::Relaxed) {
+        return;
+    }
+    let _ = app_handle.emit_to("recording_overlay", "waiting-for-keys", waiting);
+}
+
 /// Shows the recording overlay window with fade-in animation
 pub fn show_recording_overlay(app_handle: &AppHandle) {
     show_overlay_state(app_handle, "recording");

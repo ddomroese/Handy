@@ -23,6 +23,14 @@ static PASTE_LOCK: Mutex<()> = Mutex::new(());
 /// Long enough to outlast a push-to-talk recording started mid-text.
 const MODIFIER_RELEASE_TIMEOUT: Duration = Duration::from_secs(120);
 
+/// Waits for held modifier keys before typing, and has the overlay say so
+/// while the wait lasts. Returns `false` if they stayed held.
+fn wait_for_modifiers_released(app_handle: &AppHandle) -> bool {
+    crate::utils::wait_for_modifiers_released(MODIFIER_RELEASE_TIMEOUT, |waiting| {
+        crate::overlay::set_waiting_for_keys(app_handle, waiting)
+    })
+}
+
 /// Runs `f` with the shared Enigo on the main thread (macOS TIS APIs require it)
 /// and waits for the result. Runs inline if already on the main thread, so no deadlock.
 fn with_enigo<T: Send + 'static>(
@@ -821,7 +829,7 @@ fn paste_direct(
     app_handle: &AppHandle,
     #[cfg(target_os = "linux")] typing_tool: TypingTool,
 ) -> Result<(), String> {
-    if !crate::utils::wait_for_modifiers_released(MODIFIER_RELEASE_TIMEOUT) {
+    if !wait_for_modifiers_released(app_handle) {
         return Err("Did not type: modifier keys stayed held".to_string());
     }
 

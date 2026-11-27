@@ -982,7 +982,8 @@
   "overlay": {
     "transcribing": "Տառադարձվում է…",
     "processing": "Մշակվում է…",
-    "loadingModel": "Բեռնվում է մոդելը…"
+    "loadingModel": "Բեռնվում է մոդելը…",
+    "releaseKeys": "Բաց թողեք ստեղները…"
   },
   "secureInput": {
     "blockedWithCulprit_one": "{{name}}-ը կարող է արգելափակել 1 դյուրանցում",

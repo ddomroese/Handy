@@ -982,7 +982,8 @@
   "overlay": {
     "transcribing": "Átírás...",
     "processing": "Feldolgozás...",
-    "loadingModel": "Modell betöltése..."
+    "loadingModel": "Modell betöltése...",
+    "releaseKeys": "Engedd fel a gombokat..."
   },
   "secureInput": {
     "blockedWithCulprit_one": "{{name}} 1 billentyűparancsot blokkolhat",
