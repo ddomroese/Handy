@@ -650,8 +650,7 @@ pub fn emit_recording_ready(app_handle: &AppHandle) {
     });
 }
 
-/// Tells the overlay whether typing is paused until the user releases held
-/// modifier keys, so its working label can say why nothing is happening.
+/// Tells the overlay whether a paste is waiting for held modifier keys.
 pub fn set_waiting_for_keys(app_handle: &AppHandle, waiting: bool) {
     if !OVERLAY_ENABLED.load(Ordering::Relaxed) {
         return;

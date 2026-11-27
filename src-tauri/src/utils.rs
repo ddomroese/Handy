@@ -143,7 +143,7 @@ pub fn foreground_window_is_elevated() -> bool {
     }
 }
 
-/// Whether a modifier key is physically held: Ctrl, Shift, Alt or Win.
+/// Whether Ctrl, Shift, Alt or Win is held.
 #[cfg(target_os = "windows")]
 fn modifiers_held() -> bool {
     use windows::Win32::UI::Input::KeyboardAndMouse::{
@@ -156,17 +156,14 @@ fn modifiers_held() -> bool {
         .any(|key| unsafe { GetAsyncKeyState(i32::from(key.0)) } < 0)
 }
 
-/// Whether a modifier key is physically held: Control, Shift, Option,
-/// Command or fn.
+/// Whether Control, Shift, Option, Command or fn is held.
 #[cfg(target_os = "macos")]
 fn modifiers_held() -> bool {
     #[link(name = "CoreGraphics", kind = "framework")]
     extern "C" {
         fn CGEventSourceFlagsState(state_id: i32) -> u64;
     }
-    /// kCGEventSourceStateHIDSystemState: the keyboard's hardware state.
-    const HID_SYSTEM_STATE: i32 = 1;
-    // kCGEventFlagMask values. Caps Lock (bit 16) is left out on purpose.
+    const HID_SYSTEM_STATE: i32 = 1; // kCGEventSourceStateHIDSystemState
     const SHIFT: u64 = 1 << 17;
     const CONTROL: u64 = 1 << 18;
     const OPTION: u64 = 1 << 19;
@@ -178,23 +175,18 @@ fn modifiers_held() -> bool {
     flags & (SHIFT | CONTROL | OPTION | COMMAND | SECONDARY_FN) != 0
 }
 
-/// Linux has no check yet: Wayland does not let apps read the keyboard's
-/// state, so held keys are never seen there.
+/// No check on Linux: Wayland hides the keyboard's state from apps.
 #[cfg(not(any(target_os = "windows", target_os = "macos")))]
 fn modifiers_held() -> bool {
     false
 }
 
-/// Waits until the modifier keys are released. Returns `false` if `timeout`
-/// passed first. Windows and macOS only; elsewhere it returns at once.
-///
-/// Calls `on_waiting(true)` once the wait is long enough for the user to
-/// notice, and `on_waiting(false)` when it then ends.
+/// Waits until the modifier keys are released. Returns `false` on timeout.
+/// `on_waiting` reports when a noticeable wait starts and ends.
 pub fn wait_for_modifiers_released(
     timeout: std::time::Duration,
     on_waiting: impl Fn(bool),
 ) -> bool {
-    /// Shorter waits are the shortcut's own release and need no hint.
     const HINT_AFTER: std::time::Duration = std::time::Duration::from_millis(300);
     let mut hinted = false;
 

@@ -688,9 +688,6 @@ fn default_paste_delay_after_ms() -> u64 {
     return 60;
 }
 
-/// How long a paste that sends keys waits for held modifier keys before it
-/// fails. Long enough to finish a keyboard shortcut, short enough that a
-/// stuck key doesn't hold the text back for minutes.
 fn default_modifier_release_timeout_secs() -> u64 {
     30
 }

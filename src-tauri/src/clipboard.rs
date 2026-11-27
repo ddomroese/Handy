@@ -19,8 +19,7 @@ use crate::utils::{is_gnome_wayland, is_kde_wayland, is_wayland};
 /// the user's clipboard. Only taken by `paste`, which never runs on the main thread.
 static PASTE_LOCK: Mutex<()> = Mutex::new(());
 
-/// Waits for held modifier keys before sending keys, and has the overlay say so
-/// while the wait lasts. Returns `false` if they stayed held past `timeout`.
+/// Waits for held modifier keys, with a hint on the overlay. `false` on timeout.
 fn wait_for_modifiers_released(app_handle: &AppHandle, timeout: Duration) -> bool {
     crate::utils::wait_for_modifiers_released(timeout, |waiting| {
         crate::overlay::set_waiting_for_keys(app_handle, waiting)
@@ -967,9 +966,7 @@ fn paste_as_configured(
             )?;
         }
         PasteMethod::CtrlV | PasteMethod::CtrlShiftV | PasteMethod::ShiftInsert => {
-            // A modifier still held from the shortcut joins the paste chord
-            // (Ctrl+Alt+V), which the target ignores without any error. Wait
-            // before touching the clipboard, so a timeout leaves it alone.
+            // A held modifier would join the paste chord, e.g. Ctrl+Alt+V.
             let modifier_timeout = Duration::from_secs(settings.modifier_release_timeout_secs);
             if !wait_for_modifiers_released(&app_handle, modifier_timeout) {
                 return Err("Did not paste: modifier keys stayed held".to_string());

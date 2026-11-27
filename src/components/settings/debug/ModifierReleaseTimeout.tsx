@@ -9,10 +9,7 @@ interface ModifierReleaseTimeoutProps {
   grouped?: boolean;
 }
 
-/**
- * How long Handy waits for held modifier keys to be released before it
- * gives up on a paste that sends keys.
- */
+/** How long a paste waits for held modifier keys before it fails. */
 export const ModifierReleaseTimeout: React.FC<ModifierReleaseTimeoutProps> = ({
   descriptionMode = "tooltip",
   grouped = false,
@@ -21,13 +18,11 @@ export const ModifierReleaseTimeout: React.FC<ModifierReleaseTimeoutProps> = ({
   const { settings, updateSetting, resetSetting, isUpdating } = useSettings();
   const osType = useOsType();
 
-  // Only Windows and macOS can tell whether a key is held, so the setting
-  // does nothing on Linux.
+  // The key check exists on Windows and macOS only.
   if (osType !== "windows" && osType !== "macos") {
     return null;
   }
 
-  // The two platforms name their modifier keys differently.
   const description =
     osType === "macos"
       ? t("settings.debug.modifierReleaseTimeout.descriptionMac")

@@ -79,8 +79,7 @@ const RecordingOverlay: React.FC = () => {
   // True once live text overflows the cap. A top overlay fades its top edge only
   // while overflowing, so the resting first line stays crisp flush under the pill.
   const [overflowing, setOverflowing] = useState(false);
-  // Typing is paused until the user lets go of held modifier keys (they would
-  // turn the typed text into shortcuts). Say so instead of a stuck spinner.
+  // A paste is waiting for held modifier keys to be released.
   const [waitingForKeys, setWaitingForKeys] = useState(false);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [noticeWidth, setNoticeWidth] = useState<number>();
@@ -177,8 +176,7 @@ const RecordingOverlay: React.FC = () => {
 
       const unlistenPhase = await events.streamPhaseEvent.listen((event) => {
         const payload: StreamPhaseEvent = event.payload;
-        // A Live session changes phase without a show-overlay, so an older
-        // session's wait must not carry into this one's working label.
+        // Live sessions change phase without a show-overlay.
         setWaitingForKeys(false);
         setPhase(payload.phase);
         if (payload.kind) setWorkKind(payload.kind);
