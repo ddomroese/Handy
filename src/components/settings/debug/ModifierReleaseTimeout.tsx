@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Slider } from "../../ui/Slider";
 import { useSettings } from "../../../hooks/useSettings";
+import { useOsType } from "../../../hooks/useOsType";
 
 interface ModifierReleaseTimeoutProps {
   descriptionMode?: "tooltip" | "inline";
@@ -18,6 +19,13 @@ export const ModifierReleaseTimeout: React.FC<ModifierReleaseTimeoutProps> = ({
 }) => {
   const { t } = useTranslation();
   const { settings, updateSetting, resetSetting, isUpdating } = useSettings();
+  const osType = useOsType();
+
+  // Only Windows waits for the keys, so the setting does nothing elsewhere.
+  // The description names the Windows keys for the same reason.
+  if (osType !== "windows") {
+    return null;
+  }
 
   return (
     <Slider
