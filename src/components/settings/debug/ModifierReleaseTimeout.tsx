@@ -9,8 +9,8 @@ interface ModifierReleaseTimeoutProps {
 }
 
 /**
- * Direct typing only: how long Handy waits for held modifier keys to be
- * released before it gives up on the paste.
+ * How long Handy waits for held modifier keys to be released before it
+ * gives up on a paste that sends keys.
  */
 export const ModifierReleaseTimeout: React.FC<ModifierReleaseTimeoutProps> = ({
   descriptionMode = "tooltip",

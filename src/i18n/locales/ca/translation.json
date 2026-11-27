@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Temps d'espera en deixar anar les tecles",
-        "description": "Només per al mètode d'enganxament Directe: quant de temps (en segons) Handy espera que deixis anar Ctrl, Maj, Alt o Win abans d'escriure. Si les tecles continuen premudes més temps, no s'escriu res i l'enganxament falla."
+        "description": "Quant de temps (en segons) Handy espera que deixis anar Ctrl, Maj, Alt o Win abans d'enganxar o escriure. Si les tecles continuen premudes més temps, no s'insereix res i l'enganxament falla."
       },
       "reliablePaste": {
         "title": "Enganxament fiable (beta)",

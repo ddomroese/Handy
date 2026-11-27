@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Billentyűfelengedés időkorlátja",
-        "description": "Csak a Közvetlen beillesztési módnál: mennyi ideig (másodpercben) vár a Handy arra, hogy felengedd a Ctrl, Shift, Alt vagy Win billentyűt, mielőtt gépelne. Ha a billentyűk tovább maradnak lenyomva, semmi sem kerül begépelésre, és a beillesztés sikertelen."
+        "description": "Mennyi ideig (másodpercben) vár a Handy arra, hogy felengedd a Ctrl, Shift, Alt vagy Win billentyűt, mielőtt beillesztene vagy gépelne. Ha a billentyűk tovább maradnak lenyomva, semmi sem kerül beszúrásra, és a beillesztés sikertelen."
       },
       "reliablePaste": {
         "title": "Megbízható beillesztés (béta)",

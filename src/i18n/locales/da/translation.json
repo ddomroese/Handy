@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Timeout for slip af taster",
-        "description": "Kun for indsætningsmetoden Direkte: hvor længe (i sekunder) Handy venter på, at du slipper Ctrl, Shift, Alt eller Win, før der skrives. Hvis tasterne holdes nede længere, skrives der intet, og indsætningen mislykkes."
+        "description": "Hvor længe (i sekunder) Handy venter på, at du slipper Ctrl, Shift, Alt eller Win, før teksten indsættes eller skrives. Hvis tasterne holdes nede længere, indsættes der intet, og indsætningen mislykkes."
       },
       "reliablePaste": {
         "title": "Pålidelig indsættelse (Beta)",

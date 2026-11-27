@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Tidsgräns för att släppa tangenter",
-        "description": "Endast för inklistringsmetoden Direkt: hur länge (i sekunder) Handy väntar på att du släpper Ctrl, Skift, Alt eller Win innan texten skrivs. Om tangenterna hålls nere längre skrivs ingenting och inklistringen misslyckas."
+        "description": "Hur länge (i sekunder) Handy väntar på att du släpper Ctrl, Skift, Alt eller Win innan texten klistras in eller skrivs. Om tangenterna hålls nere längre infogas ingenting och inklistringen misslyckas."
       },
       "reliablePaste": {
         "title": "Tillförlitlig inklistring (Beta)",

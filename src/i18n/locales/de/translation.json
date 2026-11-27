@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Zeitlimit für das Loslassen der Tasten",
-        "description": "Nur für die Einfügemethode „Direkt“: wie lange (in Sekunden) Handy darauf wartet, dass du Strg, Umschalt, Alt oder Win loslässt, bevor getippt wird. Bleiben die Tasten länger gedrückt, wird nichts getippt und das Einfügen schlägt fehl."
+        "description": "Wie lange (in Sekunden) Handy darauf wartet, dass du Strg, Umschalt, Alt oder Win loslässt, bevor eingefügt oder getippt wird. Bleiben die Tasten länger gedrückt, wird nichts eingefügt und das Einfügen schlägt fehl."
       },
       "reliablePaste": {
         "title": "Zuverlässiges Einfügen (Beta)",

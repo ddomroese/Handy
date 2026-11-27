@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Key Release Timeout",
-        "description": "Direct paste method only: how long (in seconds) Handy waits for you to release Ctrl, Shift, Alt or Win before typing. If the keys stay held longer, nothing is typed and the paste fails."
+        "description": "How long (in seconds) Handy waits for you to release Ctrl, Shift, Alt or Win before it pastes or types. If the keys stay held longer, nothing is inserted and the paste fails."
       },
       "reliablePaste": {
         "title": "Reliable Paste (Beta)",

@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Tiempo de espera para soltar teclas",
-        "description": "Solo para el método de pegado Directo: cuánto tiempo (en segundos) espera Handy a que sueltes Ctrl, Mayús, Alt o Win antes de escribir. Si las teclas siguen pulsadas más tiempo, no se escribe nada y el pegado falla."
+        "description": "Cuánto tiempo (en segundos) espera Handy a que sueltes Ctrl, Mayús, Alt o Win antes de pegar o escribir. Si las teclas siguen pulsadas más tiempo, no se inserta nada y el pegado falla."
       },
       "reliablePaste": {
         "title": "Pegado fiable (Beta)",

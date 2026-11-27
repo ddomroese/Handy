@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "키 해제 대기 시간",
-        "description": "직접 붙여넣기 방식 전용: 입력하기 전에 Ctrl, Shift, Alt 또는 Win 키에서 손을 뗄 때까지 Handy가 기다리는 시간(초)입니다. 키를 그보다 오래 누르고 있으면 아무것도 입력되지 않고 붙여넣기가 실패합니다."
+        "description": "붙여넣거나 입력하기 전에 Ctrl, Shift, Alt 또는 Win 키에서 손을 뗄 때까지 Handy가 기다리는 시간(초)입니다. 키를 그보다 오래 누르고 있으면 아무것도 삽입되지 않고 붙여넣기가 실패합니다."
       },
       "reliablePaste": {
         "title": "안정적인 붙여넣기 (Beta)",

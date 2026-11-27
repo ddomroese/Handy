@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "按键释放超时",
-        "description": "仅适用于“直接”粘贴方式：Handy 在输入前等待你松开 Ctrl、Shift、Alt 或 Win 的时间（秒）。如果按键被按住的时间更长，则不会输入任何内容，粘贴失败。"
+        "description": "Handy 在粘贴或输入前等待你松开 Ctrl、Shift、Alt 或 Win 的时间（秒）。如果按键被按住的时间更长，则不会插入任何内容，粘贴失败。"
       },
       "reliablePaste": {
         "title": "可靠粘贴（Beta）",

@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Tempo limite para soltar as teclas",
-        "description": "Apenas para o método de colagem Direto: quanto tempo (em segundos) o Handy espera que você solte Ctrl, Shift, Alt ou Win antes de digitar. Se as teclas continuarem pressionadas por mais tempo, nada é digitado e a colagem falha."
+        "description": "Quanto tempo (em segundos) o Handy espera que você solte Ctrl, Shift, Alt ou Win antes de colar ou digitar. Se as teclas continuarem pressionadas por mais tempo, nada é inserido e a colagem falha."
       },
       "reliablePaste": {
         "title": "Colagem confiável (Beta)",

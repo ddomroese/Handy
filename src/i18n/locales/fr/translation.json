@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Délai de relâchement des touches",
-        "description": "Méthode de collage Direct uniquement : durée (en secondes) pendant laquelle Handy attend que vous relâchiez Ctrl, Maj, Alt ou Win avant de saisir le texte. Si les touches restent enfoncées plus longtemps, rien n'est saisi et le collage échoue."
+        "description": "Durée (en secondes) pendant laquelle Handy attend que vous relâchiez Ctrl, Maj, Alt ou Win avant de coller ou de saisir le texte. Si les touches restent enfoncées plus longtemps, rien n'est inséré et le collage échoue."
       },
       "reliablePaste": {
         "title": "Collage fiable (Beta)",

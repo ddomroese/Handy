@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "按鍵放開逾時",
-        "description": "僅適用於「直接」貼上方式：Handy 在輸入前等待你放開 Ctrl、Shift、Alt 或 Win 的時間（秒）。如果按鍵被按住的時間更長，則不會輸入任何內容，貼上會失敗。"
+        "description": "Handy 在貼上或輸入前等待你放開 Ctrl、Shift、Alt 或 Win 的時間（秒）。如果按鍵被按住的時間更長，則不會插入任何內容，貼上會失敗。"
       },
       "reliablePaste": {
         "title": "可靠貼上（Beta）",

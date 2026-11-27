@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Limit czasu zwolnienia klawiszy",
-        "description": "Tylko dla metody wklejania Bezpośrednio: jak długo (w sekundach) Handy czeka, aż zwolnisz Ctrl, Shift, Alt lub Win, zanim zacznie pisać. Jeśli klawisze pozostaną wciśnięte dłużej, nic nie zostanie wpisane, a wklejanie się nie powiedzie."
+        "description": "Jak długo (w sekundach) Handy czeka, aż zwolnisz Ctrl, Shift, Alt lub Win, zanim wklei lub wpisze tekst. Jeśli klawisze pozostaną wciśnięte dłużej, nic nie zostanie wstawione, a wklejanie się nie powiedzie."
       },
       "reliablePaste": {
         "title": "Niezawodne wklejanie (Beta)",

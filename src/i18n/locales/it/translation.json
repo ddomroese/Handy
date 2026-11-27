@@ -835,7 +835,7 @@
       },
       "modifierReleaseTimeout": {
         "title": "Timeout di rilascio dei tasti",
-        "description": "Solo per il metodo di incolla Diretto: per quanto tempo (in secondi) Handy attende che tu rilasci Ctrl, Maiusc, Alt o Win prima di digitare. Se i tasti restano premuti più a lungo, non viene digitato nulla e l'incolla non riesce."
+        "description": "Per quanto tempo (in secondi) Handy attende che tu rilasci Ctrl, Maiusc, Alt o Win prima di incollare o digitare. Se i tasti restano premuti più a lungo, non viene inserito nulla e l'incolla non riesce."
       },
       "reliablePaste": {
         "title": "Incolla affidabile (Beta)",
