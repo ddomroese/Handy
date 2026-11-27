@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Tuş Bırakma Zaman Aşımı",
-        "description": "Handy'nin yapıştırmadan veya yazmadan önce Ctrl, Shift, Alt veya Win tuşlarını bırakmanızı ne kadar süre (saniye cinsinden) bekleyeceği. Tuşlar daha uzun süre basılı kalırsa hiçbir şey eklenmez ve yapıştırma başarısız olur."
+        "description": "Handy'nin yapıştırmadan veya yazmadan önce Ctrl, Shift, Alt veya Win tuşlarını bırakmanızı ne kadar süre (saniye cinsinden) bekleyeceği. Tuşlar daha uzun süre basılı kalırsa hiçbir şey eklenmez ve yapıştırma başarısız olur.",
+        "descriptionMac": "Handy'nin yapıştırmadan veya yazmadan önce Control, Shift, Option, Command veya fn tuşlarını bırakmanızı ne kadar süre (saniye cinsinden) bekleyeceği. Tuşlar daha uzun süre basılı kalırsa hiçbir şey eklenmez ve yapıştırma başarısız olur."
       },
       "reliablePaste": {
         "title": "Güvenilir Yapıştırma (Beta)",

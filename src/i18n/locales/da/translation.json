@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Timeout for slip af taster",
-        "description": "Hvor længe (i sekunder) Handy venter på, at du slipper Ctrl, Shift, Alt eller Win, før teksten indsættes eller skrives. Hvis tasterne holdes nede længere, indsættes der intet, og indsætningen mislykkes."
+        "description": "Hvor længe (i sekunder) Handy venter på, at du slipper Ctrl, Shift, Alt eller Win, før teksten indsættes eller skrives. Hvis tasterne holdes nede længere, indsættes der intet, og indsætningen mislykkes.",
+        "descriptionMac": "Hvor længe (i sekunder) Handy venter på, at du slipper Control, Shift, Option, Command eller fn, før teksten indsættes eller skrives. Hvis tasterne holdes nede længere, indsættes der intet, og indsætningen mislykkes."
       },
       "reliablePaste": {
         "title": "Pålidelig indsættelse (Beta)",

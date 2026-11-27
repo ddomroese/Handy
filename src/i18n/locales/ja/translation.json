@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "キー解放のタイムアウト",
-        "description": "貼り付けまたは入力の前に、Ctrl、Shift、Alt、Win が離されるのを Handy が待つ時間（秒）。それより長くキーが押されたままの場合、何も挿入されず、貼り付けは失敗します。"
+        "description": "貼り付けまたは入力の前に、Ctrl、Shift、Alt、Win が離されるのを Handy が待つ時間（秒）。それより長くキーが押されたままの場合、何も挿入されず、貼り付けは失敗します。",
+        "descriptionMac": "貼り付けまたは入力の前に、Control、Shift、Option、Command、fn が離されるのを Handy が待つ時間（秒）。それより長くキーが押されたままの場合、何も挿入されず、貼り付けは失敗します。"
       },
       "reliablePaste": {
         "title": "確実な貼り付け(Beta)",

@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Zeitlimit für das Loslassen der Tasten",
-        "description": "Wie lange (in Sekunden) Handy darauf wartet, dass du Strg, Umschalt, Alt oder Win loslässt, bevor eingefügt oder getippt wird. Bleiben die Tasten länger gedrückt, wird nichts eingefügt und das Einfügen schlägt fehl."
+        "description": "Wie lange (in Sekunden) Handy darauf wartet, dass du Strg, Umschalt, Alt oder Win loslässt, bevor eingefügt oder getippt wird. Bleiben die Tasten länger gedrückt, wird nichts eingefügt und das Einfügen schlägt fehl.",
+        "descriptionMac": "Wie lange (in Sekunden) Handy darauf wartet, dass du Control, Umschalt, Option, Command oder fn loslässt, bevor eingefügt oder getippt wird. Bleiben die Tasten länger gedrückt, wird nichts eingefügt und das Einfügen schlägt fehl."
       },
       "reliablePaste": {
         "title": "Zuverlässiges Einfügen (Beta)",

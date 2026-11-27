@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Tiempo de espera para soltar teclas",
-        "description": "Cuánto tiempo (en segundos) espera Handy a que sueltes Ctrl, Mayús, Alt o Win antes de pegar o escribir. Si las teclas siguen pulsadas más tiempo, no se inserta nada y el pegado falla."
+        "description": "Cuánto tiempo (en segundos) espera Handy a que sueltes Ctrl, Mayús, Alt o Win antes de pegar o escribir. Si las teclas siguen pulsadas más tiempo, no se inserta nada y el pegado falla.",
+        "descriptionMac": "Cuánto tiempo (en segundos) espera Handy a que sueltes Control, Mayús, Opción, Comando o fn antes de pegar o escribir. Si las teclas siguen pulsadas más tiempo, no se inserta nada y el pegado falla."
       },
       "reliablePaste": {
         "title": "Pegado fiable (Beta)",

@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Billentyűfelengedés időkorlátja",
-        "description": "Mennyi ideig (másodpercben) vár a Handy arra, hogy felengedd a Ctrl, Shift, Alt vagy Win billentyűt, mielőtt beillesztene vagy gépelne. Ha a billentyűk tovább maradnak lenyomva, semmi sem kerül beszúrásra, és a beillesztés sikertelen."
+        "description": "Mennyi ideig (másodpercben) vár a Handy arra, hogy felengedd a Ctrl, Shift, Alt vagy Win billentyűt, mielőtt beillesztene vagy gépelne. Ha a billentyűk tovább maradnak lenyomva, semmi sem kerül beszúrásra, és a beillesztés sikertelen.",
+        "descriptionMac": "Mennyi ideig (másodpercben) vár a Handy arra, hogy felengedd a Control, Shift, Option, Command vagy fn billentyűt, mielőtt beillesztene vagy gépelne. Ha a billentyűk tovább maradnak lenyomva, semmi sem kerül beszúrásra, és a beillesztés sikertelen."
       },
       "reliablePaste": {
         "title": "Megbízható beillesztés (béta)",

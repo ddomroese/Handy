@@ -21,11 +21,17 @@ export const ModifierReleaseTimeout: React.FC<ModifierReleaseTimeoutProps> = ({
   const { settings, updateSetting, resetSetting, isUpdating } = useSettings();
   const osType = useOsType();
 
-  // Only Windows waits for the keys, so the setting does nothing elsewhere.
-  // The description names the Windows keys for the same reason.
-  if (osType !== "windows") {
+  // Only Windows and macOS can tell whether a key is held, so the setting
+  // does nothing on Linux.
+  if (osType !== "windows" && osType !== "macos") {
     return null;
   }
+
+  // The two platforms name their modifier keys differently.
+  const description =
+    osType === "macos"
+      ? t("settings.debug.modifierReleaseTimeout.descriptionMac")
+      : t("settings.debug.modifierReleaseTimeout.description");
 
   return (
     <Slider
@@ -39,7 +45,7 @@ export const ModifierReleaseTimeout: React.FC<ModifierReleaseTimeoutProps> = ({
       max={120}
       step={5}
       label={t("settings.debug.modifierReleaseTimeout.title")}
-      description={t("settings.debug.modifierReleaseTimeout.description")}
+      description={description}
       descriptionMode={descriptionMode}
       grouped={grouped}
       formatValue={(v) => `${v}s`}

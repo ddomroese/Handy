@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Temps d'espera en deixar anar les tecles",
-        "description": "Quant de temps (en segons) Handy espera que deixis anar Ctrl, Maj, Alt o Win abans d'enganxar o escriure. Si les tecles continuen premudes més temps, no s'insereix res i l'enganxament falla."
+        "description": "Quant de temps (en segons) Handy espera que deixis anar Ctrl, Maj, Alt o Win abans d'enganxar o escriure. Si les tecles continuen premudes més temps, no s'insereix res i l'enganxament falla.",
+        "descriptionMac": "Quant de temps (en segons) Handy espera que deixis anar Control, Maj, Opció, Ordre o fn abans d'enganxar o escriure. Si les tecles continuen premudes més temps, no s'insereix res i l'enganxament falla."
       },
       "reliablePaste": {
         "title": "Enganxament fiable (beta)",

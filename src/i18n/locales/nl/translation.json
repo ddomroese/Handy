@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Time-out voor loslaten van toetsen",
-        "description": "Hoe lang (in seconden) Handy wacht tot je Ctrl, Shift, Alt of Win loslaat voordat er wordt geplakt of getypt. Blijven de toetsen langer ingedrukt, dan wordt er niets ingevoegd en mislukt het plakken."
+        "description": "Hoe lang (in seconden) Handy wacht tot je Ctrl, Shift, Alt of Win loslaat voordat er wordt geplakt of getypt. Blijven de toetsen langer ingedrukt, dan wordt er niets ingevoegd en mislukt het plakken.",
+        "descriptionMac": "Hoe lang (in seconden) Handy wacht tot je Control, Shift, Option, Command of fn loslaat voordat er wordt geplakt of getypt. Blijven de toetsen langer ingedrukt, dan wordt er niets ingevoegd en mislukt het plakken."
       },
       "reliablePaste": {
         "title": "Betrouwbaar plakken (Beta)",

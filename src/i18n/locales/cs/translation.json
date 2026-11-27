@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Časový limit uvolnění kláves",
-        "description": "Jak dlouho (v sekundách) Handy čeká, než uvolníte Ctrl, Shift, Alt nebo Win, než text vloží nebo napíše. Pokud klávesy zůstanou stisknuté déle, nic se nevloží a vložení selže."
+        "description": "Jak dlouho (v sekundách) Handy čeká, než uvolníte Ctrl, Shift, Alt nebo Win, než text vloží nebo napíše. Pokud klávesy zůstanou stisknuté déle, nic se nevloží a vložení selže.",
+        "descriptionMac": "Jak dlouho (v sekundách) Handy čeká, než uvolníte Control, Shift, Option, Command nebo fn, než text vloží nebo napíše. Pokud klávesy zůstanou stisknuté déle, nic se nevloží a vložení selže."
       },
       "reliablePaste": {
         "title": "Spolehlivé vložení (Beta)",

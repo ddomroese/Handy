@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Délai de relâchement des touches",
-        "description": "Durée (en secondes) pendant laquelle Handy attend que vous relâchiez Ctrl, Maj, Alt ou Win avant de coller ou de saisir le texte. Si les touches restent enfoncées plus longtemps, rien n'est inséré et le collage échoue."
+        "description": "Durée (en secondes) pendant laquelle Handy attend que vous relâchiez Ctrl, Maj, Alt ou Win avant de coller ou de saisir le texte. Si les touches restent enfoncées plus longtemps, rien n'est inséré et le collage échoue.",
+        "descriptionMac": "Durée (en secondes) pendant laquelle Handy attend que vous relâchiez Contrôle, Maj, Option, Commande ou fn avant de coller ou de saisir le texte. Si les touches restent enfoncées plus longtemps, rien n'est inséré et le collage échoue."
       },
       "reliablePaste": {
         "title": "Collage fiable (Beta)",

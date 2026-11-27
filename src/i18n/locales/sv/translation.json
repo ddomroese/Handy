@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Tidsgräns för att släppa tangenter",
-        "description": "Hur länge (i sekunder) Handy väntar på att du släpper Ctrl, Skift, Alt eller Win innan texten klistras in eller skrivs. Om tangenterna hålls nere längre infogas ingenting och inklistringen misslyckas."
+        "description": "Hur länge (i sekunder) Handy väntar på att du släpper Ctrl, Skift, Alt eller Win innan texten klistras in eller skrivs. Om tangenterna hålls nere längre infogas ingenting och inklistringen misslyckas.",
+        "descriptionMac": "Hur länge (i sekunder) Handy väntar på att du släpper Control, Skift, Option, Command eller fn innan texten klistras in eller skrivs. Om tangenterna hålls nere längre infogas ingenting och inklistringen misslyckas."
       },
       "reliablePaste": {
         "title": "Tillförlitlig inklistring (Beta)",

@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Batas Waktu Pelepasan Tombol",
-        "description": "Berapa lama (dalam detik) Handy menunggu Anda melepas Ctrl, Shift, Alt, atau Win sebelum menempel atau mengetik. Jika tombol tetap ditekan lebih lama, tidak ada yang disisipkan dan penempelan gagal."
+        "description": "Berapa lama (dalam detik) Handy menunggu Anda melepas Ctrl, Shift, Alt, atau Win sebelum menempel atau mengetik. Jika tombol tetap ditekan lebih lama, tidak ada yang disisipkan dan penempelan gagal.",
+        "descriptionMac": "Berapa lama (dalam detik) Handy menunggu Anda melepas Control, Shift, Option, Command, atau fn sebelum menempel atau mengetik. Jika tombol tetap ditekan lebih lama, tidak ada yang disisipkan dan penempelan gagal."
       },
       "reliablePaste": {
         "title": "Tempel Lebih Andal (Beta)",

@@ -143,8 +143,50 @@ pub fn foreground_window_is_elevated() -> bool {
     }
 }
 
-/// Waits until Ctrl, Shift, Alt and Win are released. Returns `false` if
-/// `timeout` passed first.
+/// Whether a modifier key is physically held: Ctrl, Shift, Alt or Win.
+#[cfg(target_os = "windows")]
+fn modifiers_held() -> bool {
+    use windows::Win32::UI::Input::KeyboardAndMouse::{
+        GetAsyncKeyState, VK_CONTROL, VK_LWIN, VK_MENU, VK_RWIN, VK_SHIFT,
+    };
+
+    [VK_CONTROL, VK_SHIFT, VK_MENU, VK_LWIN, VK_RWIN]
+        .iter()
+        // SAFETY: GetAsyncKeyState has no preconditions.
+        .any(|key| unsafe { GetAsyncKeyState(i32::from(key.0)) } < 0)
+}
+
+/// Whether a modifier key is physically held: Control, Shift, Option,
+/// Command or fn.
+#[cfg(target_os = "macos")]
+fn modifiers_held() -> bool {
+    #[link(name = "CoreGraphics", kind = "framework")]
+    extern "C" {
+        fn CGEventSourceFlagsState(state_id: i32) -> u64;
+    }
+    /// kCGEventSourceStateHIDSystemState: the keyboard's hardware state.
+    const HID_SYSTEM_STATE: i32 = 1;
+    // kCGEventFlagMask values. Caps Lock (bit 16) is left out on purpose.
+    const SHIFT: u64 = 1 << 17;
+    const CONTROL: u64 = 1 << 18;
+    const OPTION: u64 = 1 << 19;
+    const COMMAND: u64 = 1 << 20;
+    const SECONDARY_FN: u64 = 1 << 23;
+
+    // SAFETY: CGEventSourceFlagsState only reads the event source's state.
+    let flags = unsafe { CGEventSourceFlagsState(HID_SYSTEM_STATE) };
+    flags & (SHIFT | CONTROL | OPTION | COMMAND | SECONDARY_FN) != 0
+}
+
+/// Linux has no check yet: Wayland does not let apps read the keyboard's
+/// state, so held keys are never seen there.
+#[cfg(not(any(target_os = "windows", target_os = "macos")))]
+fn modifiers_held() -> bool {
+    false
+}
+
+/// Waits until the modifier keys are released. Returns `false` if `timeout`
+/// passed first. Windows and macOS only; elsewhere it returns at once.
 ///
 /// Calls `on_waiting(true)` once the wait is long enough for the user to
 /// notice, and `on_waiting(false)` when it then ends.
@@ -152,53 +194,33 @@ pub fn wait_for_modifiers_released(
     timeout: std::time::Duration,
     on_waiting: impl Fn(bool),
 ) -> bool {
-    #[cfg(target_os = "windows")]
-    {
-        /// Shorter waits are the shortcut's own release and need no hint.
-        const HINT_AFTER: std::time::Duration = std::time::Duration::from_millis(300);
-        let mut hinted = false;
+    /// Shorter waits are the shortcut's own release and need no hint.
+    const HINT_AFTER: std::time::Duration = std::time::Duration::from_millis(300);
+    let mut hinted = false;
 
-        use windows::Win32::UI::Input::KeyboardAndMouse::{
-            GetAsyncKeyState, VK_CONTROL, VK_LWIN, VK_MENU, VK_RWIN, VK_SHIFT,
-        };
-
-        let any_down = || {
-            [VK_CONTROL, VK_SHIFT, VK_MENU, VK_LWIN, VK_RWIN]
-                .iter()
-                // SAFETY: GetAsyncKeyState has no preconditions.
-                .any(|key| unsafe { GetAsyncKeyState(i32::from(key.0)) } < 0)
-        };
-
-        let start = std::time::Instant::now();
-        while any_down() {
-            if start.elapsed() >= timeout {
-                log::warn!("Modifier keys still held after {timeout:?}");
-                if hinted {
-                    on_waiting(false);
-                }
-                return false;
+    let start = std::time::Instant::now();
+    while modifiers_held() {
+        if start.elapsed() >= timeout {
+            log::warn!("Modifier keys still held after {timeout:?}");
+            if hinted {
+                on_waiting(false);
             }
-            if !hinted && start.elapsed() >= HINT_AFTER {
-                hinted = true;
-                on_waiting(true);
-            }
-            std::thread::sleep(std::time::Duration::from_millis(10));
+            return false;
         }
-        if hinted {
-            on_waiting(false);
+        if !hinted && start.elapsed() >= HINT_AFTER {
+            hinted = true;
+            on_waiting(true);
         }
-        let waited = start.elapsed();
-        if waited >= std::time::Duration::from_millis(10) {
-            log::debug!("Waited {waited:?} for modifier keys to be released");
-        }
-        true
+        std::thread::sleep(std::time::Duration::from_millis(10));
     }
-
-    #[cfg(not(target_os = "windows"))]
-    {
-        let _ = (timeout, on_waiting);
-        true
+    if hinted {
+        on_waiting(false);
     }
+    let waited = start.elapsed();
+    if waited >= std::time::Duration::from_millis(10) {
+        log::debug!("Waited {waited:?} for modifier keys to be released");
+    }
+    true
 }
 
 #[cfg(target_os = "windows")]

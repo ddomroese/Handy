@@ -835,7 +835,8 @@
       },
       "modifierReleaseTimeout": {
         "title": "Thời gian chờ nhả phím",
-        "description": "Handy chờ bạn nhả Ctrl, Shift, Alt hoặc Win trong bao lâu (tính bằng giây) trước khi dán hoặc gõ. Nếu các phím vẫn được giữ lâu hơn, sẽ không có gì được chèn và thao tác dán thất bại."
+        "description": "Handy chờ bạn nhả Ctrl, Shift, Alt hoặc Win trong bao lâu (tính bằng giây) trước khi dán hoặc gõ. Nếu các phím vẫn được giữ lâu hơn, sẽ không có gì được chèn và thao tác dán thất bại.",
+        "descriptionMac": "Handy chờ bạn nhả Control, Shift, Option, Command hoặc fn trong bao lâu (tính bằng giây) trước khi dán hoặc gõ. Nếu các phím vẫn được giữ lâu hơn, sẽ không có gì được chèn và thao tác dán thất bại."
       },
       "reliablePaste": {
         "title": "Dán đáng tin cậy (Beta)",
