@@ -833,6 +833,10 @@
         "title": "Holdetærskel",
         "description": "Kun i automatisk tilstand: hvor længe (i millisekunder) genvejen skal holdes nede, før det tæller som et hold i stedet for et tryk. Sænk værdien, hvis korte hold lader optagelsen køre videre; hæv den, hvis bevidste tryk behandles som hold."
       },
+      "modifierReleaseTimeout": {
+        "title": "Timeout for slip af taster",
+        "description": "Kun for indsætningsmetoden Direkte: hvor længe (i sekunder) Handy venter på, at du slipper Ctrl, Shift, Alt eller Win, før der skrives. Hvis tasterne holdes nede længere, skrives der intet, og indsætningen mislykkes."
+      },
       "reliablePaste": {
         "title": "Pålidelig indsættelse (Beta)",
         "description": "Gendan først din udklipsholder, når målappen faktisk har læst transskriptionen, i stedet for efter en fast forsinkelse. Skal afhjælpe, at gammelt udklipsholderindhold indsættes, når systemet er belastet. Kræver en indsætningsmetode via udklipsholderen; kun macOS og Windows."

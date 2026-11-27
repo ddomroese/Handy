@@ -833,6 +833,10 @@
         "title": "Soglia di pressione prolungata",
         "description": "Solo in modalità Automatico: per quanto tempo (in millisecondi) la scorciatoia deve restare premuta per contare come pressione prolungata invece di un tocco. Riduci se la registrazione resta attiva dopo pressioni brevi; aumenta se i tocchi intenzionali vengono interpretati come pressioni prolungate."
       },
+      "modifierReleaseTimeout": {
+        "title": "Timeout di rilascio dei tasti",
+        "description": "Solo per il metodo di incolla Diretto: per quanto tempo (in secondi) Handy attende che tu rilasci Ctrl, Maiusc, Alt o Win prima di digitare. Se i tasti restano premuti più a lungo, non viene digitato nulla e l'incolla non riesce."
+      },
       "reliablePaste": {
         "title": "Incolla affidabile (Beta)",
         "description": "Ripristina gli appunti solo dopo che l'app di destinazione ha effettivamente letto la trascrizione, anziché dopo un ritardo fisso. Serve a risolvere l'incollaggio del vecchio contenuto degli appunti quando il sistema è sotto carico. Richiede un metodo di incollaggio tramite appunti; solo macOS e Windows."

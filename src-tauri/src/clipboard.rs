@@ -19,14 +19,10 @@ use crate::utils::{is_gnome_wayland, is_kde_wayland, is_wayland};
 /// the user's clipboard. Only taken by `paste`, which never runs on the main thread.
 static PASTE_LOCK: Mutex<()> = Mutex::new(());
 
-/// How long typing waits for held modifier keys before it fails.
-/// Long enough to outlast a push-to-talk recording started mid-text.
-const MODIFIER_RELEASE_TIMEOUT: Duration = Duration::from_secs(120);
-
 /// Waits for held modifier keys before typing, and has the overlay say so
-/// while the wait lasts. Returns `false` if they stayed held.
-fn wait_for_modifiers_released(app_handle: &AppHandle) -> bool {
-    crate::utils::wait_for_modifiers_released(MODIFIER_RELEASE_TIMEOUT, |waiting| {
+/// while the wait lasts. Returns `false` if they stayed held past `timeout`.
+fn wait_for_modifiers_released(app_handle: &AppHandle, timeout: Duration) -> bool {
+    crate::utils::wait_for_modifiers_released(timeout, |waiting| {
         crate::overlay::set_waiting_for_keys(app_handle, waiting)
     })
 }
@@ -827,9 +823,10 @@ fn paste_via_external_script(text: &str, script_path: &str) -> Result<(), String
 fn paste_direct(
     text: &str,
     app_handle: &AppHandle,
+    modifier_timeout: Duration,
     #[cfg(target_os = "linux")] typing_tool: TypingTool,
 ) -> Result<(), String> {
-    if !wait_for_modifiers_released(app_handle) {
+    if !wait_for_modifiers_released(app_handle, modifier_timeout) {
         return Err("Did not type: modifier keys stayed held".to_string());
     }
 
@@ -964,6 +961,7 @@ fn paste_as_configured(
             paste_direct(
                 &text,
                 &app_handle,
+                Duration::from_secs(settings.modifier_release_timeout_secs),
                 #[cfg(target_os = "linux")]
                 settings.typing_tool,
             )?;

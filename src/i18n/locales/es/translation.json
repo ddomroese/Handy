@@ -833,6 +833,10 @@
         "title": "Umbral de pulsación",
         "description": "Solo en el modo Automático: cuánto tiempo (en milisegundos) debe mantenerse pulsado el atajo para contar como mantener en lugar de un toque. Redúcelo si la grabación sigue activa tras pulsaciones cortas; auméntalo si los toques deliberados se interpretan como mantener."
       },
+      "modifierReleaseTimeout": {
+        "title": "Tiempo de espera para soltar teclas",
+        "description": "Solo para el método de pegado Directo: cuánto tiempo (en segundos) espera Handy a que sueltes Ctrl, Mayús, Alt o Win antes de escribir. Si las teclas siguen pulsadas más tiempo, no se escribe nada y el pegado falla."
+      },
       "reliablePaste": {
         "title": "Pegado fiable (Beta)",
         "description": "Restaura el portapapeles solo después de que la aplicación de destino lea realmente la transcripción, en lugar de tras un retraso fijo. Pensado para corregir que se pegue el contenido antiguo del portapapeles cuando el sistema está cargado. Requiere un método de pegado por portapapeles; solo macOS y Windows."

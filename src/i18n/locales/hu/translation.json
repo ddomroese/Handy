@@ -833,6 +833,10 @@
         "title": "Nyomva tartás küszöbe",
         "description": "Csak Automatikus módban: mennyi ideig (ezredmásodpercben) kell nyomva tartani a billentyűparancsot, hogy koppintás helyett nyomva tartásnak számítson. Csökkentsd, ha a rövid nyomva tartások bekapcsolva hagyják a felvételt; növeld, ha a szándékos koppintásokat nyomva tartásnak veszi."
       },
+      "modifierReleaseTimeout": {
+        "title": "Billentyűfelengedés időkorlátja",
+        "description": "Csak a Közvetlen beillesztési módnál: mennyi ideig (másodpercben) vár a Handy arra, hogy felengedd a Ctrl, Shift, Alt vagy Win billentyűt, mielőtt gépelne. Ha a billentyűk tovább maradnak lenyomva, semmi sem kerül begépelésre, és a beillesztés sikertelen."
+      },
       "reliablePaste": {
         "title": "Megbízható beillesztés (béta)",
         "description": "A vágólapot fix késleltetés helyett csak azután állítja vissza, hogy a célalkalmazás ténylegesen beolvasta az átiratot. Célja, hogy rendszerterhelés alatt ne a régi vágólap-tartalom illesztődjön be. Vágólapos beillesztési módot igényel; csak macOS-en és Windowson."

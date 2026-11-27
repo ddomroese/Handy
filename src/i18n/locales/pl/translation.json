@@ -833,6 +833,10 @@
         "title": "Próg przytrzymania",
         "description": "Tylko w trybie automatycznym: jak długo (w milisekundach) skrót musi być przytrzymany, aby liczył się jako przytrzymanie, a nie dotknięcie. Zmniejsz, jeśli po krótkim przytrzymaniu nagrywanie pozostaje włączone; zwiększ, jeśli celowe dotknięcia są traktowane jako przytrzymanie."
       },
+      "modifierReleaseTimeout": {
+        "title": "Limit czasu zwolnienia klawiszy",
+        "description": "Tylko dla metody wklejania Bezpośrednio: jak długo (w sekundach) Handy czeka, aż zwolnisz Ctrl, Shift, Alt lub Win, zanim zacznie pisać. Jeśli klawisze pozostaną wciśnięte dłużej, nic nie zostanie wpisane, a wklejanie się nie powiedzie."
+      },
       "reliablePaste": {
         "title": "Niezawodne wklejanie (Beta)",
         "description": "Przywracaj schowek dopiero po tym, jak docelowa aplikacja faktycznie odczyta transkrypcję, a nie po ustalonym opóźnieniu. Ma naprawić wklejanie starej zawartości schowka przy obciążeniu systemu. Wymaga metody wklejania przez schowek; tylko macOS i Windows."

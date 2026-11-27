@@ -833,6 +833,10 @@
         "title": "Halte-Schwellenwert",
         "description": "Nur im Modus „Automatisch“: wie lange (in Millisekunden) die Tastenkombination gedrückt bleiben muss, damit sie als Halten statt als Tippen zählt. Verringern, wenn die Aufnahme nach kurzem Halten weiterläuft; erhöhen, wenn bewusstes Tippen als Halten gewertet wird."
       },
+      "modifierReleaseTimeout": {
+        "title": "Zeitlimit für das Loslassen der Tasten",
+        "description": "Nur für die Einfügemethode „Direkt“: wie lange (in Sekunden) Handy darauf wartet, dass du Strg, Umschalt, Alt oder Win loslässt, bevor getippt wird. Bleiben die Tasten länger gedrückt, wird nichts getippt und das Einfügen schlägt fehl."
+      },
       "reliablePaste": {
         "title": "Zuverlässiges Einfügen (Beta)",
         "description": "Die Zwischenablage erst wiederherstellen, wenn die Ziel-App die Transkription tatsächlich gelesen hat, statt nach einer festen Verzögerung. Soll verhindern, dass bei Systemlast der alte Inhalt der Zwischenablage eingefügt wird. Erfordert eine Einfügemethode über die Zwischenablage; nur macOS und Windows."

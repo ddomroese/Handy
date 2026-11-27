@@ -833,6 +833,10 @@
         "title": "Vasthouddrempel",
         "description": "Alleen in de modus Automatisch: hoe lang (in milliseconden) de sneltoets ingedrukt moet blijven om als vasthouden te tellen in plaats van als tik. Verlaag dit als de opname na kort vasthouden blijft doorlopen; verhoog het als bewuste tikken als vasthouden worden gezien."
       },
+      "modifierReleaseTimeout": {
+        "title": "Time-out voor loslaten van toetsen",
+        "description": "Alleen voor de plakmethode Direct: hoe lang (in seconden) Handy wacht tot je Ctrl, Shift, Alt of Win loslaat voordat er wordt getypt. Blijven de toetsen langer ingedrukt, dan wordt er niets getypt en mislukt het plakken."
+      },
       "reliablePaste": {
         "title": "Betrouwbaar plakken (Beta)",
         "description": "Herstel het klembord pas nadat de doelapp de transcriptie daadwerkelijk heeft gelezen, in plaats van na een vaste vertraging. Bedoeld om te verhelpen dat bij systeembelasting de oude klembordinhoud wordt geplakt. Vereist een plakmethode via het klembord; alleen macOS en Windows."

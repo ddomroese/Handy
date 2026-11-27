@@ -833,6 +833,10 @@
         "title": "Práh podržení",
         "description": "Pouze v automatickém režimu: jak dlouho (v milisekundách) musí být zkratka držena, aby se počítala jako podržení místo klepnutí. Snižte, pokud po krátkém podržení nahrávání zůstává zapnuté; zvyšte, pokud jsou záměrná klepnutí vyhodnocena jako podržení."
       },
+      "modifierReleaseTimeout": {
+        "title": "Časový limit uvolnění kláves",
+        "description": "Pouze pro metodu vkládání Přímo: jak dlouho (v sekundách) Handy čeká, než uvolníte Ctrl, Shift, Alt nebo Win, než začne psát. Pokud klávesy zůstanou stisknuté déle, nic se nenapíše a vložení selže."
+      },
       "reliablePaste": {
         "title": "Spolehlivé vložení (Beta)",
         "description": "Obnoví schránku teprve poté, co cílová aplikace skutečně přečte přepis, místo po pevně daném zpoždění. Má odstranit vkládání starého obsahu schránky při zatížení systému. Vyžaduje způsob vložení přes schránku; pouze macOS a Windows."

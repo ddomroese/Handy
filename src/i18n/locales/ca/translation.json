@@ -833,6 +833,10 @@
         "title": "Llindar de pulsació llarga",
         "description": "Només en mode automàtic: temps (en mil·lisegons) que cal mantenir premuda la drecera perquè es consideri una pulsació llarga en lloc d'una de breu. Reduïu-lo si les pulsacions llargues curtes deixen l'enregistrament actiu; augmenteu-lo si les pulsacions breus intencionades es tracten com a llargues."
       },
+      "modifierReleaseTimeout": {
+        "title": "Temps d'espera en deixar anar les tecles",
+        "description": "Només per al mètode d'enganxament Directe: quant de temps (en segons) Handy espera que deixis anar Ctrl, Maj, Alt o Win abans d'escriure. Si les tecles continuen premudes més temps, no s'escriu res i l'enganxament falla."
+      },
       "reliablePaste": {
         "title": "Enganxament fiable (beta)",
         "description": "Restaura el porta-retalls només quan l'aplicació de destinació ha llegit la transcripció, en lloc de fer-ho després d'un retard fix. Pensat per evitar que s'enganxi el contingut antic del porta-retalls quan el sistema està carregat. Requereix un mètode d'enganxament amb el porta-retalls; només al macOS i al Windows."

@@ -527,6 +527,8 @@ pub struct AppSettings {
     /// fixed delay. See `paste_tx`. macOS and Windows only.
     #[serde(default)]
     pub reliable_paste: bool,
+    #[serde(default = "default_modifier_release_timeout_secs")]
+    pub modifier_release_timeout_secs: u64,
     #[serde(default = "default_typing_tool")]
     pub typing_tool: TypingTool,
     #[serde(default)]
@@ -684,6 +686,13 @@ fn default_paste_delay_after_ms() -> u64 {
     return 500;
     #[cfg(not(target_os = "linux"))]
     return 60;
+}
+
+/// How long direct typing waits for held modifier keys before the paste
+/// fails. Long enough to finish a keyboard shortcut, short enough that a
+/// stuck key doesn't hold the text back for minutes.
+fn default_modifier_release_timeout_secs() -> u64 {
+    30
 }
 
 fn default_auto_submit() -> bool {
@@ -1062,6 +1071,7 @@ pub fn get_default_settings() -> AppSettings {
         paste_delay_ms: default_paste_delay_ms(),
         paste_delay_after_ms: default_paste_delay_after_ms(),
         reliable_paste: false,
+        modifier_release_timeout_secs: default_modifier_release_timeout_secs(),
         typing_tool: default_typing_tool(),
         external_script_path: None,
         filler_word_removal_enabled: default_filler_word_removal_enabled(),

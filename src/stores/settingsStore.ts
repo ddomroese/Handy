@@ -153,6 +153,8 @@ const settingUpdaters: {
   reliable_paste: (value) =>
     commands.changeReliablePasteSetting(value as boolean),
   paste_method: (value) => commands.changePasteMethodSetting(value as string),
+  modifier_release_timeout_secs: (value) =>
+    commands.changeModifierReleaseTimeoutSecsSetting(value as number),
   typing_tool: (value) => commands.changeTypingToolSetting(value as string),
   external_script_path: (value) =>
     commands.changeExternalScriptPathSetting(value as string | null),

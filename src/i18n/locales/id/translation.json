@@ -833,6 +833,10 @@
         "title": "Ambang Waktu Tahan",
         "description": "Hanya mode Otomatis: berapa lama (dalam milidetik) pintasan harus ditahan agar dianggap ditahan, bukan ditekan singkat. Turunkan jika penahanan singkat membuat perekaman tetap aktif; naikkan jika ketukan yang disengaja dianggap sebagai penahanan."
       },
+      "modifierReleaseTimeout": {
+        "title": "Batas Waktu Pelepasan Tombol",
+        "description": "Hanya untuk metode tempel Langsung: berapa lama (dalam detik) Handy menunggu Anda melepas Ctrl, Shift, Alt, atau Win sebelum mengetik. Jika tombol tetap ditekan lebih lama, tidak ada yang diketik dan penempelan gagal."
+      },
       "reliablePaste": {
         "title": "Tempel Lebih Andal (Beta)",
         "description": "Kembalikan papan klip hanya setelah aplikasi target benar-benar membaca transkripsi, bukan setelah jeda tetap. Ditujukan untuk memperbaiki kasus isi papan klip lama yang tertempel saat sistem sedang terbebani. Memerlukan metode tempel papan klip; hanya macOS dan Windows."

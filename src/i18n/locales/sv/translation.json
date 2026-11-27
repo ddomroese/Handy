@@ -833,6 +833,10 @@
         "title": "Tröskel för hållning",
         "description": "Endast i automatiskt läge: hur länge (i millisekunder) genvägen måste hållas nere för att räknas som hållning i stället för ett tryck. Sänk värdet om inspelningen fortsätter efter korta hållningar; höj det om avsiktliga tryck tolkas som hållning."
       },
+      "modifierReleaseTimeout": {
+        "title": "Tidsgräns för att släppa tangenter",
+        "description": "Endast för inklistringsmetoden Direkt: hur länge (i sekunder) Handy väntar på att du släpper Ctrl, Skift, Alt eller Win innan texten skrivs. Om tangenterna hålls nere längre skrivs ingenting och inklistringen misslyckas."
+      },
       "reliablePaste": {
         "title": "Tillförlitlig inklistring (Beta)",
         "description": "Återställ urklipp först när målappen faktiskt har läst transkriptionen, i stället för efter en fast fördröjning. Avsett att åtgärda att det gamla urklippsinnehållet klistras in när systemet är belastat. Kräver en klistra-in-metod via urklipp; endast macOS och Windows."

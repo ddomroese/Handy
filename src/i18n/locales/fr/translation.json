@@ -833,6 +833,10 @@
         "title": "Seuil de maintien",
         "description": "Mode Auto uniquement : durée (en millisecondes) pendant laquelle le raccourci doit rester enfoncé pour compter comme un maintien plutôt qu'une pression brève. Diminuez si l'enregistrement reste actif après un maintien court ; augmentez si des pressions brèves volontaires sont traitées comme un maintien."
       },
+      "modifierReleaseTimeout": {
+        "title": "Délai de relâchement des touches",
+        "description": "Méthode de collage Direct uniquement : durée (en secondes) pendant laquelle Handy attend que vous relâchiez Ctrl, Maj, Alt ou Win avant de saisir le texte. Si les touches restent enfoncées plus longtemps, rien n'est saisi et le collage échoue."
+      },
       "reliablePaste": {
         "title": "Collage fiable (Beta)",
         "description": "Restaure le presse-papiers uniquement après que l'application cible a réellement lu la transcription, au lieu d'attendre un délai fixe. Vise à corriger le collage de l'ancien contenu du presse-papiers lorsque le système est chargé. Nécessite une méthode de collage par presse-papiers ; macOS et Windows uniquement."
